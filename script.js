@@ -98,4 +98,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- Project Highlights Gallery ----
+  // Maps each project key to its display title and 4 image paths.
+  // Replace the placeholder filenames (image-2/3/4.png) with real screenshots
+  // dropped into the portfolio folder. The JS will display whatever's listed.
+  const PROJECT_HIGHLIGHTS = {
+    actionvault: {
+      title: 'ActionVault Highlights',
+      images: ['actionvault.png', 'actionvault-2.png', 'actionvault-3.png', 'actionvault-4.png']
+    },
+    unclerogers: {
+      title: "Uncle Roger's Highlights",
+      images: ['uncle-rogers.png', 'uncle-rogers-2.png', 'uncle-rogers-3.png', 'uncle-rogers-4.png']
+    },
+    explorlando: {
+      title: 'Explorlando Highlights',
+      images: ['explore.png', 'explore-2.png', 'explore-3.png', 'explore-4.png']
+    },
+    comet: {
+      title: 'Comet Tales Highlights',
+      images: ['comet.png', 'comet-2.png', 'comet-3.png', 'comet-4.png']
+    },
+    kennel: {
+      title: 'Kennel Highlights',
+      images: ['dog.png', 'dog-2.png', 'dog-3.png', 'dog-4.png']
+    }
+  };
+
+  const highlightsModal = document.getElementById('highlightsModal');
+  const highlightsClose = document.getElementById('highlightsClose');
+  const highlightsTitle = document.getElementById('highlightsTitle');
+  const highlightsGrid = document.getElementById('highlightsGrid');
+
+  if (highlightsModal) {
+    const openHighlights = (projectKey) => {
+      const project = PROJECT_HIGHLIGHTS[projectKey];
+      if (!project) return;
+
+      highlightsTitle.textContent = project.title;
+      highlightsGrid.innerHTML = '';
+      project.images.forEach((src, i) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `${project.title} image ${i + 1}`;
+        img.className = 'highlights-img';
+        highlightsGrid.appendChild(img);
+      });
+
+      highlightsModal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeHighlights = () => {
+      highlightsModal.hidden = true;
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.btn-highlights').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        openHighlights(btn.dataset.project);
+      });
+    });
+
+    highlightsClose.addEventListener('click', closeHighlights);
+
+    // Click outside the modal content closes the gallery
+    highlightsModal.addEventListener('click', e => {
+      if (e.target === highlightsModal) closeHighlights();
+    });
+
+    // Escape key closes the gallery
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !highlightsModal.hidden) closeHighlights();
+    });
+  }
+
 });

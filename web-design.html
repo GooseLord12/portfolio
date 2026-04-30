@@ -46,11 +46,79 @@
     <div class="container">
       <div class="projects-grid">
 
+        <!--
+          ActionVault project — Week 14/15 final assignment
+          Fill in each field below before submission:
+            1. Screenshot/GIF (replace empty img src)
+            2. Deployed link (replace empty href on "View Project")
+            3. GitHub repo link (replace empty href on "View Code")
+            4. Brief description — what it is, what you built
+            5. Tech stack tags
+            6. Short retrospective — what you'd fix or do differently now
+        -->
+        <article class="project-card" data-aos>
+          <div class="project-image">
+            <img src="actionvault.png" alt="ActionVault" class="project-img">
+            <div class="project-overlay">
+              <a href="https://superb-narwhal-e765f1.netlify.app/" target="_blank" class="btn btn-small">View
+                Project</a>
+              <a href="https://github.com/GooseLord12/Midterm" target="_blank" class="btn btn-small">View Code</a>
+              <a href="#" class="btn btn-small btn-highlights" data-project="actionvault">View Project Highlights</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>ActionVault</h3>
+            <p>ActionVault helps collectors organize, track, and showcase their action figure collections. Whether you
+              collect vintage Star Wars figures, Marvel Legends, model kits, or any other line, ActionVault gives you a
+              central place to manage it all! Be it updating figure listings/conditions, sorting through your collection
+              or simply building your own wishlist, these are but some of ActionValut's features that can all be
+              operated within the app, and ActionValut's sleek, yet impactful UI will alow users to navigate these
+              components with ease.</p>
+            <div class="project-tags">
+              <span>HTML/CSS</span>
+              <span>JavaScript</span>
+              <span>Node.js</span>
+              <span>Ollama API</span>
+            </div>
+            <p class="project-retro"><strong>Future Work:</strong> When I revisit this project, I'll add a sort dropdown
+              so collections can be organized by name, value, or date added, implement export/import so collections
+              aren't locked to a single browser, and fully implement a user account and server-based authentication and
+              image handling for efficient functionality.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-aos>
+          <div class="project-image">
+            <img src="uncle-rogers.png" alt="Uncle Roger's Comic Shop" class="project-img">
+            <div class="project-overlay">
+              <a href="https://github.com/GooseLord12/week5" target="_blank" class="btn btn-small">View Code</a>
+              <a href="#" class="btn btn-small btn-highlights" data-project="unclerogers">View Project Highlights</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>Uncle Roger's Comic Shop</h3>
+            <p>A multi-page marketing site for a fictional local comic book shop. Features a full light/dark mode toggle
+              that respects user preference and OS settings, a filterable product catalog of 15 comics across 5
+              categories, and a contact form with topic selection. Built with vanilla HTML, CSS, and JavaScript with no
+              frameworks. Designed and developed by me.</p>
+            <div class="project-tags">
+              <span>HTML/CSS</span>
+              <span>JavaScript</span>
+              <span>localStorage</span>
+            </div>
+            <p class="project-retro"><strong>Future Work:</strong> When I revisit this project, I'll extract the
+              duplicated inline scripts into a single shared script.js file, replace the inline onclick handlers with
+              proper event listeners, wire the contact form to a real backend service like Formspree, and swap the
+              static map placeholder for an embedded interactive map.</p>
+          </div>
+        </article>
+
         <article class="project-card" data-aos>
           <div class="project-image">
             <img src="explore.png" alt="Explorlando" class="project-img">
             <div class="project-overlay">
               <a href="#" class="btn btn-small">View Project</a>
+              <a href="#" class="btn btn-small btn-highlights" data-project="explorlando">View Project Highlights</a>
             </div>
           </div>
           <div class="project-info">
@@ -69,7 +137,9 @@
           <div class="project-image">
             <img src="comet.png" alt="Comet Tales" class="project-img">
             <div class="project-overlay">
-              <a href="https://www.figma.com/proto/gsPqmIZWVUKxvTAiO5MpNq/high-fid-prototype?node-id=105-1048&p=f&t=L2qzd7L3aYDn6zdV-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=105%3A1048" target="_blank" class="btn btn-small">View Project</a>
+              <a href="https://www.figma.com/proto/gsPqmIZWVUKxvTAiO5MpNq/high-fid-prototype?node-id=105-1048&p=f&t=L2qzd7L3aYDn6zdV-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=105%3A1048"
+                target="_blank" class="btn btn-small">View Project</a>
+              <a href="#" class="btn btn-small btn-highlights" data-project="comet">View Project Highlights</a>
             </div>
           </div>
           <div class="project-info">
@@ -88,7 +158,9 @@
           <div class="project-image">
             <img src="dog.png" alt="Kennel" class="project-img">
             <div class="project-overlay">
-              <a href="https://www.figma.com/proto/K4lPQEvy5VpgUHEemaQ5li/Untitled?t=dN983bbb4xyc7GQH-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=28-469&starting-point-node-id=28%3A469" target="_blank" class="btn btn-small">View Project</a>
+              <a href="https://www.figma.com/proto/K4lPQEvy5VpgUHEemaQ5li/Untitled?t=dN983bbb4xyc7GQH-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=28-469&starting-point-node-id=28%3A469"
+                target="_blank" class="btn btn-small">View Project</a>
+              <a href="#" class="btn btn-small btn-highlights" data-project="kennel">View Project Highlights</a>
             </div>
           </div>
           <div class="project-info">
@@ -134,6 +206,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- Project Highlights Modal -->
+  <div class="highlights-modal" id="highlightsModal" role="dialog" aria-modal="true" aria-labelledby="highlightsTitle"
+    hidden>
+    <div class="highlights-modal-content">
+      <button class="highlights-close" id="highlightsClose" aria-label="Close gallery">&times;</button>
+      <h2 class="highlights-title" id="highlightsTitle">Project Highlights</h2>
+      <div class="highlights-grid" id="highlightsGrid">
+        <!-- Images injected by JS -->
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
