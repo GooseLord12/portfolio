@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const PROJECT_HIGHLIGHTS = {
     actionvault: {
       title: 'ActionVault Highlights',
-      images: ['actionvault.png', 'actionvault-2.png', 'actionvault-3.png', 'actionvault-4.png']
+      images: ['actionvault-1.png', 'actionvault-2.png', 'actionvault-3.png', 'actionvault-4.png']
     },
     unclerogers: {
       title: "Uncle Roger's Highlights",
@@ -129,6 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const highlightsClose = document.getElementById('highlightsClose');
   const highlightsTitle = document.getElementById('highlightsTitle');
   const highlightsGrid = document.getElementById('highlightsGrid');
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
 
   if (highlightsModal) {
     const openHighlights = (projectKey) => {
@@ -154,6 +158,17 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     };
 
+    const openLightbox = (src, alt) => {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.hidden = false;
+    };
+
+    const closeLightbox = () => {
+      lightbox.hidden = true;
+      lightboxImg.src = '';
+    };
+
     document.querySelectorAll('.btn-highlights').forEach(btn => {
       btn.addEventListener('click', e => {
         e.preventDefault();
@@ -168,9 +183,32 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === highlightsModal) closeHighlights();
     });
 
-    // Escape key closes the gallery
+    // Click a gallery image to expand it in the lightbox (event delegation
+    // since images are dynamically created when the gallery opens)
+    if (lightbox) {
+      highlightsGrid.addEventListener('click', e => {
+        const target = e.target;
+        if (target.classList.contains('highlights-img')) {
+          openLightbox(target.src, target.alt);
+        }
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+
+      // Click the dark backdrop (but not the image itself) to close
+      lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) closeLightbox();
+      });
+    }
+
+    // Escape closes whichever overlay is on top: lightbox first, then gallery
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && !highlightsModal.hidden) closeHighlights();
+      if (e.key !== 'Escape') return;
+      if (lightbox && !lightbox.hidden) {
+        closeLightbox();
+      } else if (!highlightsModal.hidden) {
+        closeHighlights();
+      }
     });
   }
 

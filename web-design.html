@@ -91,6 +91,8 @@
           <div class="project-image">
             <img src="uncle-rogers.png" alt="Uncle Roger's Comic Shop" class="project-img">
             <div class="project-overlay">
+              <a href="https://creative-marigold-6c60cc.netlify.app/" target="_blank" class="btn btn-small">View
+                Project</a>
               <a href="https://github.com/GooseLord12/week5" target="_blank" class="btn btn-small">View Code</a>
               <a href="#" class="btn btn-small btn-highlights" data-project="unclerogers">View Project Highlights</a>
             </div>
@@ -100,7 +102,7 @@
             <p>A multi-page marketing site for a fictional local comic book shop. Features a full light/dark mode toggle
               that respects user preference and OS settings, a filterable product catalog of 15 comics across 5
               categories, and a contact form with topic selection. Built with vanilla HTML, CSS, and JavaScript with no
-              frameworks. Designed and developed by me.</p>
+              frameworks.</p>
             <div class="project-tags">
               <span>HTML/CSS</span>
               <span>JavaScript</span>
@@ -108,7 +110,7 @@
             </div>
             <p class="project-retro"><strong>Future Work:</strong> When I revisit this project, I'll extract the
               duplicated inline scripts into a single shared script.js file, replace the inline onclick handlers with
-              proper event listeners, wire the contact form to a real backend service like Formspree, and swap the
+              proper event listeners, wire the contact form to a real backend service and swap the
               static map placeholder for an embedded interactive map.</p>
           </div>
         </article>
@@ -217,6 +219,12 @@
         <!-- Images injected by JS -->
       </div>
     </div>
+  </div>
+
+  <!-- Full-screen Image Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
   </div>
 
   <script src="script.js"></script>
